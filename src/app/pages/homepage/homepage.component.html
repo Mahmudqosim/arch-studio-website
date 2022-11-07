@@ -1,0 +1,24 @@
+<div class="w-full overflow-hidden relative">
+  <ul class="grid grid-cols-4 w-[400%] relative left-[-100%]"
+    [ngClass]="{'slide-left': animation === 'left', 'slide-right': animation === 'right'}">
+    <li *ngFor="let item of slides; let i = index" [style.order]="(5 - (slide - i)) % 4">
+      <app-hero-section [title]="item.title" [image]="item.image"
+        [description]="item.description"></app-hero-section>
+    </li>
+  </ul>
+  <div class="hidden absolute xl:grid grid-cols-4 w-[20rem] h-20 bottom-0 left-[max(50%-39.6875rem,0px)]
+    bg-neutral text-[1.125rem] font-bold text-neutral-400
+  ">
+    <button (click)="handleClick(0)" class="hover:bg-neutral-100"
+      [ngClass]="{'bg-neutral-800 hover:!bg-neutral-800 text-neutral': slide === 0}">01</button>
+    <button (click)="handleClick(1)" class="hover:bg-neutral-100"
+      [ngClass]="{'bg-neutral-800 hover:!bg-neutral-800 text-neutral': slide === 1}">02</button>
+    <button (click)="handleClick(2)" class="hover:bg-neutral-100"
+      [ngClass]="{'bg-neutral-800 hover:!bg-neutral-800 text-neutral': slide === 2}">03</button>
+    <button (click)="handleClick(3)" class="hover:bg-neutral-100"
+      [ngClass]="{'bg-neutral-800 hover:!bg-neutral-800 text-neutral': slide === 3}">04</button>
+  </div>
+</div>
+<app-welcome-section></app-welcome-section>
+<app-team-section></app-team-section>
+<app-featured-section></app-featured-section>
